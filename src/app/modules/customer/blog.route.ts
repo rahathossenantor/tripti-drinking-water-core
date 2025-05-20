@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 import validateRequest from "../../middlewares/validateRequest";
 import { blogValidations } from "./customer.validation";
-import { blogControllers } from "./blog.controller";
+import { blogControllers } from "./customer.controller";
 import { upload } from "../../utils/uploadImage";
 
 const router = Router();
