@@ -9,7 +9,10 @@ const createOrderIntoDB = async (payload: TOrder) => {
 
 // get all orders
 const getAllOrdersFromDB = async () => {
-    const dbRes = await Order.find();
+    const dbRes = await Order.find()
+        .populate("customer")
+        .populate("product");
+
     return dbRes;
 };
 

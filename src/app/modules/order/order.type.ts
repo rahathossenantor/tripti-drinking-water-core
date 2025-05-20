@@ -2,8 +2,8 @@ import { Types } from "mongoose";
 
 export type TOrder = {
     paymentStatus: "Due" | "Paid";
-    productId: Types.ObjectId;
-    customerId: Types.ObjectId;
+    product: Types.ObjectId;
+    customer: Types.ObjectId;
     quantity: number;
     totalPrice: number;
 };

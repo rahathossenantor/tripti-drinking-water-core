@@ -3,12 +3,12 @@ import { TOrder } from "./order.type";
 
 const orderSchema = new Schema<TOrder>(
     {
-        customerId: {
+        customer: {
             type: Schema.Types.ObjectId,
             ref: "Customer",
             required: true,
         },
-        productId: {
+        product: {
             type: Schema.Types.ObjectId,
             ref: "Product",
             required: true,
