@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import uploadImage from "../../utils/uploadImage";
-import { Blog } from "./blog.model";
+import { Blog } from "./customer.model";
 import { TBlog } from "./customer.type";
 
 // create a new blog

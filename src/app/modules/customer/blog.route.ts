@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import validateRequest from "../../middlewares/validateRequest";
-import { blogValidations } from "./blog.validation";
+import { blogValidations } from "./customer.validation";
 import { blogControllers } from "./blog.controller";
 import { upload } from "../../utils/uploadImage";
 
