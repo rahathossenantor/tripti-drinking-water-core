@@ -7,6 +7,13 @@ const createOrderIntoDB = async (payload: TOrder) => {
     return dbRes;
 };
 
+// get all orders
+const getAllOrdersFromDB = async () => {
+    const dbRes = await Order.find();
+    return dbRes;
+};
+
 export const orderServices = {
-    createOrderIntoDB
+    createOrderIntoDB,
+    getAllOrdersFromDB,
 };
