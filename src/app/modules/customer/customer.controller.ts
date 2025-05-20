@@ -8,7 +8,7 @@ const createCustomer = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Customer has registered successfully.",
+        message: "Customer has been registered successfully.",
         data: dbRes
     });
 });

@@ -3,6 +3,9 @@ import { TCustomer } from "./customer.type";
 
 const customerSchema = new Schema<TCustomer>(
     {
+        customerId: {
+            type: String,
+        },
         name: {
             type: String,
             required: true,
@@ -10,7 +13,6 @@ const customerSchema = new Schema<TCustomer>(
         },
         email: {
             type: String,
-            unique: true,
             trim: true,
         },
         phone: {
