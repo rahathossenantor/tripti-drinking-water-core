@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import uploadImage from "../../utils/uploadImage";
 import { Blog } from "./blog.model";
-import { TBlog } from "./blog.type";
+import { TBlog } from "./customer.type";
 
 // create a new blog
 const createBlogIntoDB = async (payload: TBlog, imagePath: string) => {
