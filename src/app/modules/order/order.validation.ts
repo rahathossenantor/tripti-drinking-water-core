@@ -2,10 +2,7 @@ import { z } from "zod";
 
 const orderValidationSchema = z.object({
     body: z.object({
-        productId: z.string({
-            required_error: "Product ID is required",
-        }),
-        customerId: z.string({
+        customer: z.string({
             required_error: "Customer ID is required",
         }),
         quantity: z.number({
@@ -15,6 +12,9 @@ const orderValidationSchema = z.object({
         }),
         totalPrice: z.number({
             required_error: "Total price is required",
+        }),
+        paymentStatus: z.enum(["Due", "Paid"], {
+            required_error: "Payment status is required",
         }),
     })
 });

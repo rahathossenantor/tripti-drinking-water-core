@@ -5,10 +5,8 @@ import { generateCustomerId } from "./customer.utils";
 // create a new customer
 const createCustomerIntoDB = async (payload: TCustomer) => {
     payload.customerId = await generateCustomerId();
-    // console.log(payload);
 
     const dbRes = await Customer.create(payload);
-    // return payload;
     return dbRes;
 };
 

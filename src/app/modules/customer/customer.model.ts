@@ -11,6 +11,10 @@ const customerSchema = new Schema<TCustomer>(
             required: true,
             trim: true,
         },
+        productPrice: {
+            type: Number,
+            required: true,
+        },
         email: {
             type: String,
             trim: true,

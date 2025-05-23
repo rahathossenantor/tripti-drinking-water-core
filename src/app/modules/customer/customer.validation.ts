@@ -9,6 +9,9 @@ const customerCreationValidationSchema = z.object({
         phone: z.string({
             required_error: "Phone number is required",
         }).min(11, "Phone number must be at least 11 characters long"),
+        productPrice: z.number({
+            required_error: "Product price is required",
+        }),
         deliveryAddress: z.string({
             required_error: "Delivery address is required",
         }),
