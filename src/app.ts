@@ -10,7 +10,7 @@ const app: Application = express();
 // parsers (middlewares)
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3000", "https://tripti-drinking-water-core-view.netlify.app"], credentials: true }));
+app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3000", "https://tripti-drinking-water.netlify.app"], credentials: true }));
 
 // application routes
 app.use("/api/v1", router);

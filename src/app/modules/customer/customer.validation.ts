@@ -5,7 +5,7 @@ const customerCreationValidationSchema = z.object({
         name: z.string({
             required_error: "Name is required"
         }).min(3, "Name must be at least 3 characters long"),
-        email: z.string().email("Invalid email format").optional(),
+        email: z.string().optional(),
         phone: z.string({
             required_error: "Phone number is required",
         }).min(11, "Phone number must be at least 11 characters long"),
