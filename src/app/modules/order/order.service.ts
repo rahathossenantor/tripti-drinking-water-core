@@ -15,7 +15,18 @@ const getAllOrdersFromDB = async () => {
     return dbRes;
 };
 
+// update payment status
+const updatePaymentStatusIntoDB = async (id: string) => {
+    const dbRes = await Order.findByIdAndUpdate(
+        id,
+        { paymentStatus: "Paid" },
+        { new: true }
+    );
+    return dbRes;
+};
+
 export const orderServices = {
     createOrderIntoDB,
     getAllOrdersFromDB,
+    updatePaymentStatusIntoDB
 };
