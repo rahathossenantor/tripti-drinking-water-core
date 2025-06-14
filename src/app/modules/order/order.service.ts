@@ -25,8 +25,15 @@ const updatePaymentStatusIntoDB = async (id: string) => {
     return dbRes;
 };
 
+// delete order
+const deleteOrderFromDB = async (id: string) => {
+    const dbRes = await Order.findByIdAndDelete(id);
+    return dbRes;
+};
+
 export const orderServices = {
     createOrderIntoDB,
     getAllOrdersFromDB,
-    updatePaymentStatusIntoDB
+    updatePaymentStatusIntoDB,
+    deleteOrderFromDB
 };

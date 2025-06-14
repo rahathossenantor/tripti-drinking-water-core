@@ -18,4 +18,9 @@ router.get(
     orderControllers.getAllOrders
 );
 
+router.patch(
+    "/:id",
+    orderControllers.updatePaymentStatus
+);
+
 export const orderRoutes = router;
