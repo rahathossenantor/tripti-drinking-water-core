@@ -24,7 +24,20 @@ const getAllOrders = catchAsync(async (req, res) => {
     });
 });
 
+// update payment status
+const updatePaymentStatus = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const dbRes = await orderServices.updatePaymentStatusIntoDB(id);
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "Payment status has been updated successfully.",
+        data: dbRes
+    });
+});
+
 export const orderControllers = {
     createOrder,
     getAllOrders,
+    updatePaymentStatus
 };
