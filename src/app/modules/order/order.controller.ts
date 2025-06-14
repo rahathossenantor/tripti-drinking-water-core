@@ -36,8 +36,21 @@ const updatePaymentStatus = catchAsync(async (req, res) => {
     });
 });
 
+// delete order
+const deleteOrder = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const dbRes = await orderServices.deleteOrderFromDB(id);
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "Order has been deleted successfully.",
+        data: dbRes
+    });
+});
+
 export const orderControllers = {
     createOrder,
     getAllOrders,
-    updatePaymentStatus
+    updatePaymentStatus,
+    deleteOrder
 };
