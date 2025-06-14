@@ -23,4 +23,9 @@ router.patch(
     orderControllers.updatePaymentStatus
 );
 
+router.delete(
+    "/:id",
+    orderControllers.deleteOrder
+);
+
 export const orderRoutes = router;
