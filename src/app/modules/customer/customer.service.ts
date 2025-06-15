@@ -27,7 +27,7 @@ const updateCustomerIntoDB = async (id: string, payload: Partial<TCustomer>) => 
         { new: true, runValidators: true }
     );
     if (!dbRes) {
-        throw new Error("Failed to update customer!");
+        throw new Error("দুঃখিত! কাস্টমারের তথ্য আপডেট করা যায়নি!");
     }
     return dbRes;
 };
@@ -38,13 +38,13 @@ const deleteCustomerFromDB = async (id: string) => {
 
     const dueOrders = orders.filter((order) => order.paymentStatus === "Due");
     if (dueOrders.length) {
-        throw new Error("Cannot delete customer with due orders!");
+        throw new Error("দুঃখিত! এই কাস্টমারের অপরিশোধিত অর্ডার রয়েছে!");
     }
 
     if (!orders.length) {
         const deletedCustomer = await Customer.findByIdAndDelete(id);
         if (!deletedCustomer) {
-            throw new Error("Failed to delete customer!");
+            throw new Error("দুঃখিত! কাস্টমারের তথ্য ডিলিট করা যায়নি!");
         }
         return deletedCustomer;
     }
@@ -55,12 +55,12 @@ const deleteCustomerFromDB = async (id: string) => {
     try {
         const deletedOrders = await Order.deleteMany({ customer: id }, { session });
         if (!deletedOrders.deletedCount) {
-            throw new Error("Failed to delete orders for this customer!");
+            throw new Error("দুঃখিত! এই কাস্টমারের অর্ডারগুলো ডিলিট করা যায়নি!");
         }
 
         const deletedCustomer = await Customer.findByIdAndDelete(id, { session });
         if (!deletedCustomer) {
-            throw new Error("Failed to delete customer!");
+            throw new Error("দুঃখিত! এই কাস্টমারের তথ্য ডিলিট করা যায়নি!");
         }
 
         await session.commitTransaction();
@@ -69,7 +69,7 @@ const deleteCustomerFromDB = async (id: string) => {
     } catch (err: any) {
         await session.abortTransaction();
         await session.endSession();
-        throw new Error("Failed to delete customer!" + err.message);
+        throw new Error(err.message);
     }
 };
 
