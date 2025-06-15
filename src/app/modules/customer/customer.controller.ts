@@ -8,7 +8,7 @@ const createCustomer = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Customer has been registered successfully.",
+        message: "কাস্টমার রেজিস্ট্রেশন সফল হয়েছে।",
         data: dbRes
     });
 });
@@ -19,7 +19,7 @@ const getAllCustomers = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Customers have been fetched successfully.",
+        message: "সফলভাবে সকল কাস্টমারের তথ্য পাওয়া গিয়েছে।",
         data: dbRes
     });
 });
@@ -31,7 +31,7 @@ const deleteCustomer = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Customer has been deleted successfully.",
+        message: "সফলভাবে কাস্টমারের তথ্য ডিলিট হয়েছে।",
         data: dbRes
     });
 });
