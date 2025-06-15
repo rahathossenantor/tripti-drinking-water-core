@@ -8,7 +8,7 @@ const createOrder = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Order has been completed successfully.",
+        message: "সফলভাবে পানি দেয়া হয়েছে।",
         data: dbRes
     });
 });
@@ -19,7 +19,7 @@ const getAllOrders = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Orders have been fetched successfully.",
+        message: "সফলভাবে সকল অর্ডারের তথ্য পাওয়া গিয়েছে।",
         data: dbRes
     });
 });
@@ -31,7 +31,7 @@ const updatePaymentStatus = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Payment status has been updated successfully.",
+        message: "সফলভাবে পরিশোধিত হিসেবে চিহ্নিত করা হয়েছে।",
         data: dbRes
     });
 });
@@ -43,7 +43,7 @@ const deleteOrder = catchAsync(async (req, res) => {
 
     res.status(httpStatus.OK).json({
         success: true,
-        message: "Order has been deleted successfully.",
+        message: "অর্ডারের তথ্য সফলভাবে ডিলিট হয়েছে।",
         data: dbRes
     });
 });
