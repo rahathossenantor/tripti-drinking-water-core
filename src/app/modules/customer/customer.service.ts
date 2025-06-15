@@ -16,7 +16,14 @@ const getAllCustomersFromDB = async () => {
     return dbRes;
 };
 
+// delete a customer
+const deleteCustomerFromDB = async (id: string) => {
+    const dbRes = await Customer.findByIdAndDelete(id);
+    return dbRes;
+};
+
 export const customerServices = {
     createCustomerIntoDB,
     getAllCustomersFromDB,
+    deleteCustomerFromDB,
 };
