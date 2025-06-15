@@ -24,7 +24,20 @@ const getAllCustomers = catchAsync(async (req, res) => {
     });
 });
 
+// delete customer
+const deleteCustomer = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const dbRes = await customerServices.deleteCustomerFromDB(id);
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "Customer has been deleted successfully.",
+        data: dbRes
+    });
+});
+
 export const customerControllers = {
     createCustomer,
     getAllCustomers,
+    deleteCustomer,
 };

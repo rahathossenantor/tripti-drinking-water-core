@@ -18,4 +18,9 @@ router.get(
     customerControllers.getAllCustomers
 );
 
+router.delete(
+    "/:id",
+    customerControllers.deleteCustomer
+);
+
 export const customerRoutes = router;
