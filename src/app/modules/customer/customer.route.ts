@@ -18,6 +18,19 @@ router.get(
     customerControllers.getAllCustomers
 );
 
+router.get(
+    "/:id",
+    customerControllers.getSingleCustomer
+);
+
+router.put(
+    "/:id",
+    validateRequest(
+        customerValidations.customerUpdateValidationSchema
+    ),
+    customerControllers.updateCustomer
+);
+
 router.delete(
     "/:id",
     customerControllers.deleteCustomer

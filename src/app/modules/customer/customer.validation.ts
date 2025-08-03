@@ -24,6 +24,19 @@ const customerCreationValidationSchema = z.object({
     })
 });
 
+const customerUpdateValidationSchema = z.object({
+    body: z.object({
+        name: z.string().optional(),
+        email: z.string().optional(),
+        phone: z.string().optional(),
+        productPrice: z.number().optional(),
+        deliveryAddress: z.string().optional(),
+        customerType: z.enum(["Residential", "Business"]).optional(),
+        serviceType: z.enum(["Daily", "Weekly", "Monthly"]).optional(),
+    })
+});
+
 export const customerValidations = {
     customerCreationValidationSchema,
+    customerUpdateValidationSchema
 };
