@@ -24,6 +24,30 @@ const getAllCustomers = catchAsync(async (req, res) => {
     });
 });
 
+// get a single customer
+const getSingleCustomer = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const dbRes = await customerServices.getCustomerByIdFromDB(id);
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "সফলভাবে কাস্টমারের তথ্য পাওয়া গিয়েছে।",
+        data: dbRes
+    });
+});
+
+// update customer
+const updateCustomer = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const dbRes = await customerServices.updateCustomerIntoDB(id, req.body);
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "সফলভাবে কাস্টমারের তথ্য আপডেট হয়েছে।",
+        data: dbRes
+    });
+});
+
 // delete customer
 const deleteCustomer = catchAsync(async (req, res) => {
     const { id } = req.params;
@@ -39,5 +63,7 @@ const deleteCustomer = catchAsync(async (req, res) => {
 export const customerControllers = {
     createCustomer,
     getAllCustomers,
+    getSingleCustomer,
+    updateCustomer,
     deleteCustomer,
 };
