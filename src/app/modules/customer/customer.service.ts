@@ -19,6 +19,15 @@ const getAllCustomersFromDB = async () => {
     return dbRes;
 };
 
+// get a single customer
+const getCustomerByIdFromDB = async (id: string) => {
+    const dbRes = await Customer.findById(id);
+    if (!dbRes) {
+        throw new Error("দুঃখিত! কাস্টমারটি পাওয়া যায়নি!");
+    }
+    return dbRes;
+};
+
 // update a customer
 const updateCustomerIntoDB = async (id: string, payload: Partial<TCustomer>) => {
     const dbRes = await Customer.findByIdAndUpdate(
@@ -76,6 +85,7 @@ const deleteCustomerFromDB = async (id: string) => {
 export const customerServices = {
     createCustomerIntoDB,
     getAllCustomersFromDB,
+    getCustomerByIdFromDB,
     updateCustomerIntoDB,
     deleteCustomerFromDB,
 };
