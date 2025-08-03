@@ -23,7 +23,7 @@ router.get(
     customerControllers.getSingleCustomer
 );
 
-router.put(
+router.patch(
     "/:id",
     validateRequest(
         customerValidations.customerUpdateValidationSchema
