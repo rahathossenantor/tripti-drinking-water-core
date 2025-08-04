@@ -18,6 +18,11 @@ router.get(
     orderControllers.getAllOrders
 );
 
+router.get(
+    "/:customerId",
+    orderControllers.getCustomersOrders
+);
+
 router.patch(
     "/:id",
     orderControllers.updatePaymentStatus

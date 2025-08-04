@@ -24,6 +24,25 @@ const getAllOrders = catchAsync(async (req, res) => {
     });
 });
 
+// get customer's orders
+const getCustomersOrders = catchAsync(async (req, res) => {
+    const { customerId } = req.params;
+    const dbRes = await orderServices.getCustomersOrdersFromDB(customerId);
+
+    if (!dbRes) {
+        return res.status(httpStatus.NOT_FOUND).json({
+            success: false,
+            message: "অর্ডার পাওয়া যায়নি।"
+        });
+    }
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "সফলভাবে অর্ডারের তথ্য পাওয়া গিয়েছে।",
+        data: dbRes
+    });
+});
+
 // update payment status
 const updatePaymentStatus = catchAsync(async (req, res) => {
     const { id } = req.params;
@@ -51,6 +70,7 @@ const deleteOrder = catchAsync(async (req, res) => {
 export const orderControllers = {
     createOrder,
     getAllOrders,
+    getCustomersOrders,
     updatePaymentStatus,
     deleteOrder
 };

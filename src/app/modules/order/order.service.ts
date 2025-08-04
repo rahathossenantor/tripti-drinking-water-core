@@ -15,6 +15,14 @@ const getAllOrdersFromDB = async () => {
     return dbRes;
 };
 
+// get customer's orders
+const getCustomersOrdersFromDB = async (customerId: string) => {
+    const dbRes = await Order.find({ customer: customerId })
+        .populate("customer");
+
+    return dbRes;
+};
+
 // update payment status
 const updatePaymentStatusIntoDB = async (id: string) => {
     const dbRes = await Order.findByIdAndUpdate(
@@ -34,6 +42,7 @@ const deleteOrderFromDB = async (id: string) => {
 export const orderServices = {
     createOrderIntoDB,
     getAllOrdersFromDB,
+    getCustomersOrdersFromDB,
     updatePaymentStatusIntoDB,
     deleteOrderFromDB
 };
